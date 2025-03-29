@@ -4,4 +4,4 @@ public enum TypeRec {
 
         TECHNIQUE, PAIEMENT, AUTRE
     }
-}
+

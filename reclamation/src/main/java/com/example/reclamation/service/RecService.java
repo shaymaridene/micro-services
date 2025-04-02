@@ -1,5 +1,7 @@
-package com.example.reclamation;
+package com.example.reclamation.service;
 
+import com.example.reclamation.entity.Reclamation;
+import com.example.reclamation.repo.RecRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

@@ -1,5 +1,7 @@
-package com.example.reclamation;
+package com.example.reclamation.controller;
 
+import com.example.reclamation.service.RecService;
+import com.example.reclamation.entity.Reclamation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -14,17 +16,17 @@ public class RecController {
 
     @PostMapping("/addRec")
     @ResponseStatus(HttpStatus.ACCEPTED)
-    public void addRec(@RequestBody Rec rec) {
+    public void addRec(@RequestBody Reclamation rec) {
         recService.addRec(rec);
     }
 
     @GetMapping("/getAllRec")
-    public List<Rec> getRecs() {
+    public List<Reclamation> getRecs() {
         return recService.getAllRec();
     }
 
     @PutMapping("/updateRec/{id_rec}")
-    public Reclamation updateRec(@PathVariable int id_rec, @RequestBody Rec rec) {
+    public Reclamation updateRec(@PathVariable int id_rec, @RequestBody Reclamation rec) {
         return recService.updateRec(rec);
     }
 

@@ -1,12 +1,11 @@
 package com.example.reclamation.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 import java.util.Date;
 
+
+@Data
 @Entity
 @Getter
 @Setter
@@ -17,13 +16,13 @@ public class Reclamation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id_rec;
+    private String client;
+    private String email;
     @Enumerated(EnumType.STRING)
     private TypeRec typeRec;
     @Enumerated(EnumType.STRING)
     private Status status;
-
     private String description;
-    private int id_rec_user;
     @Temporal(TemporalType.TIMESTAMP)
     private Date dateCreation = new Date();
 }

@@ -12,12 +12,13 @@ import java.util.List;
 @RequestMapping("/api/reclamation")
 @RequiredArgsConstructor
 public class RecController {
-    RecService recService;
 
-    @PostMapping("/addRec")
+    private final RecService recService;
+
+    @PostMapping("/addRec/{userId}")
     @ResponseStatus(HttpStatus.ACCEPTED)
-    public void addRec(@RequestBody Reclamation rec) {
-        recService.addRec(rec);
+    public void addRec(@PathVariable Long userId, @RequestBody Reclamation rec) {
+        recService.addRec(userId, rec);
     }
 
     @GetMapping("/getAllRec")
@@ -26,12 +27,13 @@ public class RecController {
     }
 
     @PutMapping("/updateRec/{id_rec}")
-    public Reclamation updateRec(@PathVariable int id_rec, @RequestBody Reclamation rec) {
+    public Reclamation updateRec(@PathVariable long id_rec, @RequestBody Reclamation rec) {
+        rec.setId_rec(id_rec);
         return recService.updateRec(rec);
     }
 
     @DeleteMapping("/removeRec/{id_rec}")
-    public void removeRec(@PathVariable int id_rec) {
+    public void removeRec(@PathVariable long id_rec) {
         recService.removeRec(id_rec);
     }
 }
